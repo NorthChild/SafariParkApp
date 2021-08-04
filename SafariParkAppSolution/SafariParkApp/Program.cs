@@ -60,7 +60,36 @@ namespace SafariParkApp
             DemoMethod(pt3d, john);
 
             //Console.WriteLine("Point X: " + point.x) ;
+
+            // INHERITANCE EXAMPLES
+            Hunter hunterMan = new Hunter("Nick", "Stolkes", "Canon") {Age = 32 };
+
+            var h2 = new Hunter("marion", "jones", "leica") { Age = 32 };
+
+            Console.WriteLine($"h Equals h2? {hunterMan.Equals(h2)}");
+            Console.WriteLine($"h HashCodel : {hunterMan.GetHashCode()}");
+            Console.WriteLine($"h Type : {hunterMan.GetType()}");
+            Console.WriteLine($"h ToString : {hunterMan.ToString()}");
+
+            Console.WriteLine("#################");
+
+            Console.WriteLine(hunterMan.GetFullName());
+            Console.WriteLine(hunterMan.Age);
+            Console.WriteLine(hunterMan.Shoot());
+
+
+            Hunter emptyHunter = new Hunter();
+
+            Console.WriteLine(emptyHunter.Shoot());
+            Console.WriteLine($"hunterMan: {hunterMan}");
+
+
+            // abstract and sealed classes 
+            Rectangle ShapeMan = new Rectangle(5,10);            
+            Console.WriteLine(ShapeMan.CalculateArea());
+
         }
+
 
         public struct Point3d 
         {

@@ -55,6 +55,11 @@ namespace SafariParkApp
          
         }
 
+        public override string ToString()
+        {
+            return $"{base.ToString()} Name: {GetFullName()} Age: {Age}";
+        }
+
 
         public string GetFullName()
         {
