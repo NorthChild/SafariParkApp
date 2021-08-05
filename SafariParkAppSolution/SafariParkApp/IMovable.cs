@@ -6,4 +6,10 @@ using System.Threading.Tasks;
 
 namespace SafariParkApp
 {
+    interface IMovable
+    {
+        string Move();
+        string Move(int times);
+    }
+
 }

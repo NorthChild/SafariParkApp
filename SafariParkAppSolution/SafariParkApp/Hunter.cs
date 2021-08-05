@@ -6,16 +6,25 @@ using System.Threading.Tasks;
 
 namespace SafariParkApp
 {
-    class Hunter : Person
+    public class Hunter : Person, IMovable, IShootable
     {
-        private string _camera;
+        // change after IShooter
+        //private string _camera;
+        public IShootable _brand;
+
+        public IShootable Shooter { get { return _brand; } set { _brand = value;} }
 
         // base pickes up values from the parent class
-        public Hunter(string fNmame, string lName, string camera = "") : base(fNmame, lName)  
+        // implemented IShootable, old code is commented
+        //public Hunter(string fNmame, string lName, string camera = "") : base(fNmame, lName)
+        //{
+        //    this._camera = camera;
+        //}
+        
+        public Hunter(string fNmame, string lName, IShootable shootable) : base(fNmame, lName)
         {
-            this._camera = camera;
+            Shooter = shootable;
         }
-
 
         public Hunter() 
         {
@@ -24,13 +33,12 @@ namespace SafariParkApp
 
         public override string ToString()
         {
-            return $"{base.ToString()} Camera: {_camera}";
+            return $"{base.ToString()} Camera: {this._brand}";
         }
 
-
-        public string Shoot() 
+        public string Shoot()
         {
-            return $"{GetFullName()} has taken a photo with their {_camera}";
+            return $"{GetFullName()}: {Shooter.Shoot()}";
         }
     }
 }
